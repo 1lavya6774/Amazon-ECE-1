@@ -75,10 +75,10 @@ function shuffle(array) {
     return array;
 }
 
-// Shuffle products array then slice first 5 for featured section
+// Shuffle a copy of the products array then slice first 5 for featured section
 // Every page refresh produces a different featured selection
-shuffle(products);
-const featuredProducts = products.slice(0, 5); // first 5 from shuffled array
+const shuffledProducts = shuffle([...products]);
+const featuredProducts = shuffledProducts.slice(0, 5); // first 5 from shuffled array
 renderProducts(featuredProducts, featuredSection);
 renderProducts(products, productSection);
 
